@@ -66,6 +66,7 @@ public class HipChatNotifier extends Notifier {
         private String sendAs;
 
         public DescriptorImpl() {
+            super(HipChatNotifier.class);
             load();
         }
 
@@ -100,7 +101,6 @@ public class HipChatNotifier extends Notifier {
 
         @Override
         public boolean configure(StaplerRequest sr, JSONObject formData) throws FormException {
-            load();
             token = sr.getParameter("hipChatToken");
             room = sr.getParameter("hipChatRoom");
             buildServerUrl = sr.getParameter("hipChatBuildServerUrl");
